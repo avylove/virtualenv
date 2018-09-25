@@ -18,8 +18,8 @@ environment:
 install:
   # We need tox installed for the tests
   - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-  - python -m wheel -h
-  - python -m setup -h
+  - bitsadmin /transfer pyOpenSSL /download https://files.pythonhosted.org/packages/96/af/9d29e6bd40823061aea2e0574ccb2fcf72bfd6130ce53d32773ec375458c/pyOpenSSL-18.0.0-py2.py3-none-any.whl pyOpenSSL-18.0.0-py2.py3-none-any.whl
+  - pip install pyOpenSSL-18.0.0-py2.py3-none-any.whl
   - "%PYTHON%\\Scripts\\pip.exe install requests[security]"
   - "%PYTHON%\\Scripts\\pip.exe install tox"
 
@@ -27,3 +27,5 @@ build: off
 
 test_script:
   - "%PYTHON%\\Scripts\\tox.exe -e py"
+
+
